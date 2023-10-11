@@ -23,7 +23,7 @@ app.component('product-display', {
           <div 
             v-for="(variant, index) in variants" 
             :key="variant.id" 
-            @mouseover="updateVariant(index)" 
+            @click="updateVariant(index)" 
             class="color-circle" 
             :style="{ backgroundColor: variant.color }">
           </div>
@@ -85,7 +85,7 @@ app.component('product-display', {
 
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart')
         },
 
         removeFromCart() {
